@@ -66,14 +66,14 @@ public class Nursery {
                     }
                     break;
                 case 1:
-                    if (group2.getGroup().size() < CHILDREN.size() / 3) {
+                    if (group2.getGroup().size() < CHILDREN.size() / groups.size()) {
                         group2.getGroup().add(child);
                     } else {
                         group2.getGroup().set(groupIndex, child);
                     }
                     break;
                 case 2:
-                    if (group3.getGroup().size() < CHILDREN.size() / 3) {
+                    if (group3.getGroup().size() < CHILDREN.size() / groups.size()) {
                         group3.getGroup().add(child);
                     } else {
                         group3.getGroup().set(groupIndex, child);
@@ -81,7 +81,7 @@ public class Nursery {
                     break;
             }
             i++;
-            if (i % 3 == 0) {
+            if (i % groups.size() == 0) {
                 groupIndex++;
             }
         }
