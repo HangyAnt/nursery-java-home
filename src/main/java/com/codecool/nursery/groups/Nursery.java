@@ -98,16 +98,19 @@ public class Nursery {
     private void makeChildrenDoSomething() {
         groups.forEach(group -> {
             int random = ThreadLocalRandom.current().nextInt();
-            if (random % 4 == 0) {
-                playBall(group);
-            }
-            if (random % 4 == 1) {
-                dance(group);
-            }
-            if (random % 4 == 2) {
-                draw(group);
-            } else {
-                sing(group);
+            switch (random % 4) {
+                case 0:
+                    playBall(group);
+                    break;
+                case 1:
+                    dance(group);
+                    break;
+                case 2:
+                    draw(group);
+                    break;
+                case 3:
+                    sing(group);
+                    break;
             }
         });
     }
@@ -122,7 +125,6 @@ public class Nursery {
             System.out.println("\033[0;34m*** Tranquility in the nursery. :) ***\033[0m");
             logComplacency(numOfHalfAnHours);
             System.out.print("\n");
-
         }
     }
 
