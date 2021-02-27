@@ -117,7 +117,7 @@ public class Nursery {
 
     private void evaluateResult(int numOfHalfAnHours) {
         if (countWhimperingChildren() > 2) {
-            System.out.printf("\033[0;31m%s*** Chaos in the nursery! ***%s\033[0m\n", " ".repeat(8), " ".repeat(8));
+            System.out.printf("\033[0;31m%s*** Chaos in the nursery! :/ ***%s\033[0m\n", " ".repeat(7), " ".repeat(7));
             logComplacency(numOfHalfAnHours);
             System.out.print("\n");
             System.exit(0);
@@ -142,7 +142,7 @@ public class Nursery {
 
     private void logComplacency(int numOfHalfAnHours) {
         System.out.printf("%s*** Evaluation after " + (float) numOfHalfAnHours / 2 + " hour%s ***%s\n",
-                " ".repeat(6), numOfHalfAnHours > 2 ? "s" : "", " ".repeat(6));
+                " ".repeat(6), numOfHalfAnHours > 2 ? "s" : " ", " ".repeat(6));
         groups.forEach(group -> {
             System.out.println("\033[4;32m××× " + group.getName() + ":\033[0m");
             group.getGroup().forEach(child ->
