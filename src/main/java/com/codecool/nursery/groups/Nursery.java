@@ -90,24 +90,26 @@ public class Nursery {
     public void simulateOneDay() {
         for (int i = 0; i < TWELVE_HALF_AN_HOUR; i++) {
             assignChildrenToGroups();
-            groups.forEach(this::getChildrenDoSomething);
+            getChildrenDoSomething();
             evaluateResult(i + 1); // Plus 1, because we started with 0.
         }
     }
 
-    private void getChildrenDoSomething(Group group) {
-        int random = ThreadLocalRandom.current().nextInt();
-        if (random % 4 == 0) {
-            playBall(group);
-        }
-        if (random % 4 == 1) {
-            dance(group);
-        }
-        if (random % 4 == 2) {
-            draw(group);
-        } else {
-            sing(group);
-        }
+    private void getChildrenDoSomething() {
+        groups.forEach(group -> {
+            int random = ThreadLocalRandom.current().nextInt();
+            if (random % 4 == 0) {
+                playBall(group);
+            }
+            if (random % 4 == 1) {
+                dance(group);
+            }
+            if (random % 4 == 2) {
+                draw(group);
+            } else {
+                sing(group);
+            }
+        });
     }
 
     private void evaluateResult(int numOfHalfAnHours) {
@@ -144,7 +146,6 @@ public class Nursery {
             group.getGroup().forEach(child ->
                     System.out.printf("%-27s complacency: %2d\n", child.toString(), child.getComplacency()));
         });
-        ;
     }
 
 }
