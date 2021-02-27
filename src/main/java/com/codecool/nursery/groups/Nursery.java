@@ -117,14 +117,12 @@ public class Nursery {
 
     private void evaluateResult(int numOfHalfAnHours) {
         if (countWhimperingChildren() > 2) {
-            String space8 = "        ";
-            System.out.printf("\033[0;31m%s*** Chaos in the nursery! ***%s\033[0m\n", space8, space8);
+            System.out.printf("\033[0;31m%s*** Chaos in the nursery! ***%s\033[0m\n", " ".repeat(8), " ".repeat(8));
             logComplacency(numOfHalfAnHours);
             System.out.print("\n");
             System.exit(0);
         } else {
-            String space4 = "    ";
-            System.out.printf("\033[0;34m%s*** Tranquility in the nursery. :) ***%s\033[0m\n", space4, space4);
+            System.out.printf("\033[0;34m%s*** Tranquility in the nursery. :) ***%s\033[0m\n", " ".repeat(4), " ".repeat(4));
             logComplacency(numOfHalfAnHours);
             System.out.print("\n");
         }
@@ -143,11 +141,10 @@ public class Nursery {
     }
 
     private void logComplacency(int numOfHalfAnHours) {
-        String space6 = "      ";
         System.out.printf("%s*** Evaluation after " + (float) numOfHalfAnHours / 2 + " hour%s ***%s\n",
-                space6, numOfHalfAnHours > 2 ? "s" : "", space6);
+                " ".repeat(6), numOfHalfAnHours > 2 ? "s" : "", " ".repeat(6));
         groups.forEach(group -> {
-            System.out.println("××× " + group.getName() + ":");
+            System.out.println("\033[4;32m××× " + group.getName() + ":\033[0m");
             group.getGroup().forEach(child ->
                     System.out.printf("%-30s complacency: %2d\n", child.toString(), child.getComplacency()));
         });
