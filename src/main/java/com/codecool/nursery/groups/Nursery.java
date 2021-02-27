@@ -90,12 +90,12 @@ public class Nursery {
     public void simulateOneDay() {
         for (int i = 0; i < TWELVE_HALF_AN_HOUR; i++) {
             assignChildrenToGroups();
-            getChildrenDoSomething();
+            makeChildrenDoSomething();
             evaluateResult(i + 1); // Plus 1, because we started with 0.
         }
     }
 
-    private void getChildrenDoSomething() {
+    private void makeChildrenDoSomething() {
         groups.forEach(group -> {
             int random = ThreadLocalRandom.current().nextInt();
             if (random % 4 == 0) {
@@ -140,7 +140,6 @@ public class Nursery {
 
     private void logComplacency(int numOfHalfAnHours) {
         System.out.println("*** Evaluation after " + (float) numOfHalfAnHours / 2 + " hours ***");
-        int groupNumber = 1;
         groups.forEach(group -> {
             System.out.println(group.getName() + ":");
             group.getGroup().forEach(child ->
